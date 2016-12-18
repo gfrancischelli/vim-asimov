@@ -1,9 +1,80 @@
 "  Illumicolor
 "
-" Modified from Steve Losh Badwolf 
+" Built on top of Steve Losh's amazing Badwolf 
 "   http://stevelosh.com/projects/badwolf/
 "
-" Supporting code -------------------------------------------------------------
+" Palette --------------------------------------------------------------- {{{
+
+let s:ilc = {}
+
+" The most basic of all our colors is a slightly tweaked version of the Molokai
+" Normal text.
+let s:ilc.plain = ['bfc5c7', 254]
+
+" Pure and simple.
+let s:ilc.snow = ['edfaf9', 15]
+let s:ilc.coal = ['000000', 16]
+
+" All of the Gravel colors are based on a brown from Clouds Midnight.
+let s:ilc.brightgravel   = ['d9cec3', 252]
+let s:ilc.lightgravel    = ['998f84', 245]
+let s:ilc.gravel         = ['857f78', 243]
+let s:ilc.mediumgravel   = ['666462', 241]
+let s:ilc.deepgravel     = ['45413b', 238]
+let s:ilc.deepergravel   = ['35322d', 236]
+let s:ilc.darkgravel     = ['242321', 235]
+let s:ilc.darkblackgravel= ['191919', 234]
+let s:ilc.blackgravel    = ['171717', 233]
+let s:ilc.blackestgravel = ['141413', 232]
+
+" A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
+" my desk.
+let s:ilc.dalespale = ['fade3e', 223]
+
+" A beautiful tan from Tomorrow Night.
+let s:ilc.lightgreen = ['8bc16f', 187]
+
+" Light yellow
+let s:ilc.sandwisp = ['f4e694', 102]
+
+" Light Blue
+let s:ilc.logan = ['9ba3c5', 37]
+
+" Light Orange
+let s:ilc.waxflower = ['a678ac', 222]
+
+" Ice
+let s:ilc.ice  = ['ffffd7', 160]
+
+let s:ilc.smaltblue = ['4C8385', 66]
+
+" Another chewy accent, but use sparingly!
+let s:ilc.saltwatersandwisp = ['8cffba', 121]
+
+" The star of the show comes straight from Made of Code.
+"
+" You should almost never use this.  It should be used for things that denote
+" 'where the user is', which basically consists of:
+"
+" * The cursor
+" * A REPL prompt
+let s:ilc.tardis = ['0a9dff', 39]
+
+" Dark red
+let s:ilc.carmine = ['b03b3b', 96]
+
+" Rose's dress in The Idiot's Lantern.
+let s:ilc.dress = ['f26767', 152]
+
+" Another play on the brown from Clouds Midnight.  I love that color.
+let s:ilc.toffee = ['b88853', 137]
+
+" Also based on that Clouds Midnight brown.
+let s:ilc.coffee    = ['c7915b', 173]
+let s:ilc.darkroast = ['88633f', 95]
+
+" }}}
+" Supporting code ------------------------------------------------------- {{{
 " Preamble {{{
 
 if !has("gui_running") && &t_Co != 88 && &t_Co != 256
@@ -25,73 +96,6 @@ let g:colors_name = "illumicolor"
 " if !exists("g:badwolf_css_props_highlight") " {{{
 "     let g:badwolf_css_props_highlight = 0
 " endif " }}}
-
-" }}}
-" Palette {{{
-
-let s:ilc = {}
-
-" The most basic of all our colors is a slightly tweaked version of the Molokai
-" Normal text.
-let s:ilc.plain = ['d6d1d1', 15]
-
-" Pure and simple.
-let s:ilc.snow = ['ffffff', 15]
-let s:ilc.coal = ['000000', 16]
-
-" All of the Gravel colors are based on a brown from Clouds Midnight.
-let s:ilc.brightgravel   = ['d9cec3', 252]
-let s:ilc.lightgravel    = ['998f84', 245]
-let s:ilc.gravel         = ['857f78', 243]
-let s:ilc.mediumgravel   = ['666462', 241]
-let s:ilc.deepgravel     = ['45413b', 238]
-let s:ilc.deepergravel   = ['35322d', 236]
-let s:ilc.darkgravel     = ['242321', 235]
-let s:ilc.blackgravel    = ['171717', 233]
-let s:ilc.blackestgravel = ['141413', 232]
-
-" A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
-" my desk.
-let s:ilc.dalespale = ['fade3e', 221]
-
-" A beautiful tan from Tomorrow Night.
-let s:ilc.lightgreen = ['87c478', 222]
-
-" Light yellow
-let s:ilc.sandwisp = ['f4e694', 196]
-
-let s:ilc.falcon = ['ffffff', 200]
-
-" Another chewy accent, but use sparingly!
-let s:ilc.saltwatersandwisp = ['8cffba', 121]
-
-" The star of the show comes straight from Made of Code.
-"
-" You should almost never use this.  It should be used for things that denote
-" 'where the user is', which basically consists of:
-"
-" * The cursor
-" * A REPL prompt
-let s:ilc.tardis = ['0a9dff', 39]
-
-" This one's from Mustang, not Florida!
-let s:ilc.orange = ['ffa724', 214]
-
-" Dark red
-let s:ilc.carmine = ['b03b3b', 200]
-
-" A limier green from Getafe.
-let s:ilc.lime = ['aeee00', 154]
-
-" Rose's dress in The Idiot's Lantern.
-let s:ilc.dress = ['ff9eb8', 211]
-
-" Another play on the brown from Clouds Midnight.  I love that color.
-let s:ilc.toffee = ['b88853', 137]
-
-" Also based on that Clouds Midnight brown.
-let s:ilc.coffee    = ['c7915b', 173]
-let s:ilc.darkroast = ['88633f', 95]
 
 " }}}
 " Highlighting Function {{{
@@ -157,8 +161,10 @@ else
 endif
 
 " }}}
-" Actual colorscheme ----------------------------------------------------------
-" Vanilla Vim {{{
+" }}}
+
+" Actual colorscheme --------------------------------------------------------
+" Vim UI ---------------------------------------------------------------- {{{
 " General/UI {{{
 
 call s:HL('Normal', 'plain', 'blackgravel')
@@ -182,6 +188,11 @@ call s:HL('SpecialKey', 'deepgravel', 'bg')
 
 call s:HL('Visual',    '',  'deepgravel')
 call s:HL('VisualNOS', '',  'deepgravel')
+
+" Highlights only characters in 80th column
+call s:HL('ColorColumn', '', 'darkgravel', 'none')
+call matchadd('ColorColumn', '\%81v', 100)
+
 " }}}
 " Gutter {{{
 
@@ -192,15 +203,19 @@ call s:HL('FoldColumn', 'mediumgravel', s:gutter)
 " }}}
 " Cursor {{{
 
-call s:HL('Cursor',  'coal', 'tardis', 'bold')
-call s:HL('vCursor', 'coal', 'tardis', 'bold')
-call s:HL('iCursor', 'coal', 'tardis', 'none')
+call s:HL('Cursor',  'coal', 'carmine', 'bold')
+call s:HL('vCursor', 'coal', 'carmine', 'bold')
+call s:HL('iCursor', 'coal', 'carmine', 'none')
 
 " }}}
-" Syntax highlighting {{{
+" }}}
+" Vimscript ------------------------------------------------------------- {{{
+call s:HL('vimCommand', 'ice', '', 'none')
 
+" }}}
+" Default Groups -------------------------------------------------------- {{{
 " Start with a simple base.
-call s:HL('Special', 'plain')
+call s:HL('Special', 'plain', '', 'none')
 
 " Comments are slightly brighter than folds, to make 'headers' easier to see.
 call s:HL('Comment',        'gravel', '', 'italic')
@@ -212,13 +227,109 @@ call s:HL('String', 'lightgreen')
 
 " Control flow stuff is sandwisp.
 call s:HL('Statement',   'sandwisp', '', 'none')
+call s:HL('Keyword',     'sandwisp', '', 'none')
+call s:HL('Conditional', 'sandwisp', '', 'none')
+call s:HL('Operator',    'lightgravel', '', 'none')
+call s:HL('Label',       'sandwisp', '', 'none')
+call s:HL('Repeat',      'sandwisp', '', 'none')
+call s:HL('Define',      'carmine', '', 'none')
+call s:HL('Type',        'dress', '', 'none')
+call s:HL('Number', 'dalespale', '', 'none')
 
-call s:HL('Identifier', 'carmine', '', 'none')
-call s:HL('Function',   'carmine', '', 'none')
+call s:HL('Identifier', 'sandwisp', '', 'none')
+call s:HL('Function',   'sandwisp', '', 'none')
 
-call s:HL('javaScriptIdentifier', 'carmine', '', 'none')
-call s:HL('jsStorageClass', 'carmine', '', 'none')
 
-call s:HL('javaScriptDocTags', 'carmine', '', 'none',)
 " }}}
+" Html ------------------------------------------------------------------ {{{
+call s:HL('htmlTitle',   'dalespale', '', 'none')
+call s:HL('htmlAttrib', 'brightgravel', '', 'italic')
+call s:HL('htmlEqual', 'lightgravel', '', 'italic')
+call s:HL('htmlTag', 'deepgravel', '', 'none')
+call s:HL('htmlEndTag', 'mediumgravel', '', 'none')
+call s:HL('htmlTagName', 'gravel', '', 'none')
+
+call s:HL('xmlAttrib', 'brightgravel', '', 'italic')
+call s:HL('xmlEqual', 'lightgravel', '', 'italic')
+call s:HL('xmlTag', 'deepgravel', '', 'none')
+call s:HL('xmlEndTag', 'mediumgravel', '', 'none')
+call s:HL('xmlTagName', 'gravel', '', 'none')
+
+" }}}
+" Css ------------------------------------------------------------------- {{{
+
+call s:HL('cssNoise',       'gravel', '', 'none')
+call s:HL('cssBraces',      'deepgravel', '', 'none')
+call s:HL('cssClassName',   'ice', '', 'italic')
+call s:HL('cssClassNameDot',  'lightgravel', '', 'italic')
+call s:HL('cssUnitDecorators',  'darkroast', '', 'none')
+
+call s:HL('cssPositioningAttr', 'coffee', '', 'none')
+call s:HL('cssBoxProp',   'plain', '', 'none')
+call s:HL('cssTextProp',  'plain', '', 'none')
+call s:HL('cssFontProp',  'plain', '', 'none')
+call s:HL('cssPositioningProp', 'plain', '', 'none')
+
+
+" }}}
+" Javascript ------------------------------------------------------------ {{{
+
+" Basics
+call s:HL('jsNumber',     'dalespale', '', 'italic')
+call s:HL('jsOperator',   'waxflower', '', '')
+call s:HL('jsNoise',  'mediumgravel', '', 'none')
+call s:HL('jsSuper',  'smaltblue',  '', 'none')
+call s:HL('jsThis',   'waxflower', '', 'none')
+
+" Braces
+call s:HL('jsBraces',  'brightgravel', '', 'none')
+call s:HL('jsTemplateBraces', 'lightgravel', '', 'none')
+call s:HL('jsDestructuringBraces', 'lightgravel', '', 'none')
+
+" Function
+call s:HL('jsFunction',       'ice', '', 'none')
+call s:HL('jsFuncName',       'plain', '', 'none')
+call s:HL('jsArrowFunction',  'dalespale', '', 'none')
+call s:HL('jsFuncArgs',       'snow', '', 'italic')
+call s:HL('jsFuncParens',     'gravel', '', 'none')
+call s:HL('jsFuncCall',         'snow', '', 'none')
+call s:HL('jsObjectFuncName',   'plain', '', 'none')
+call s:HL('jsReturn',           'smaltblue', '', 'none')
+call s:HL('jsArrowFuncArgs', 'snow', '', 'none')
+
+" Js Conditionals
+call s:HL('jsConditional',      'dalespale', '', 'none')
+call s:HL('jsBooleanTrue',      'saltwatersandwisp', '', 'none')
+
+" ES6
+call s:HL('jsFrom',          'gravel', '', 'none')
+call s:HL('jsImport',        'gravel', '', 'none')
+call s:HL('jsExport', 'ice', '', 'italic')
+call s:HL('jsExportDefault', 'lightgravel', '', 'none')
+call s:HL('jsModuleKeyword', 'snow', '', 'italic')
+
+call s:HL('javascriptReserved', 'ice', '', 'italic')
+
+call s:HL('jsGlobalObjects', 'ice', '', 'none')
+
+" Objects
+call s:HL('jsObjectSeparator', 'mediumgravel', '', 'none')
+call s:HL('jsObjectColon',      'lightgravel', '', 'none')
+call s:HL('jsObjectKey',        'lightgravel', '', 'none')
+call s:HL('javaScriptObjectKey', 'gravel', '', 'none')
+call s:HL('jsStorageClass', 'carmine', '', 'none')
+call s:HL('jsGlobalNodeObjects', 'ice', '', 'italic' )
+
+
+
+" }}}
+" Plugins --------------------------------------------------------------- {{{
+
+" Indent Guides Plugin
+set ts=2 sw=2 et
+let g:indent_guides_guide_size=2
+call s:HL('IndentGuidesOdd', '', 'blackgravel', 'none')
+call s:HL('IndentGuidesEven', '', 'darkblackgravel', 'none')
+
+
 " }}}
