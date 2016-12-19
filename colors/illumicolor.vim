@@ -1,55 +1,55 @@
-"  Illumicolor
+"  Asimov
 "
 " Built on top of Steve Losh's amazing Badwolf 
 "   http://stevelosh.com/projects/badwolf/
 "
 " Palette --------------------------------------------------------------- {{{
 
-let s:ilc = {}
+let s:asm = {}
 
 " The most basic of all our colors is a slightly tweaked version of the Molokai
 " Normal text.
-let s:ilc.plain = ['bfc5c7', 254]
+let s:asm.plain = ['bfc5c7', 254]
 
 " Pure and simple.
-let s:ilc.snow = ['edfaf9', 15]
-let s:ilc.coal = ['000000', 16]
+let s:asm.snow = ['edfaf9', 15]
+let s:asm.coal = ['000000', 16]
 
 " All of the Gravel colors are based on a brown from Clouds Midnight.
-let s:ilc.brightgravel   = ['d9cec3', 252]
-let s:ilc.lightgravel    = ['998f84', 245]
-let s:ilc.gravel         = ['857f78', 243]
-let s:ilc.mediumgravel   = ['666462', 241]
-let s:ilc.deepgravel     = ['45413b', 238]
-let s:ilc.deepergravel   = ['35322d', 236]
-let s:ilc.darkgravel     = ['242321', 235]
-let s:ilc.darkblackgravel= ['191919', 234]
-let s:ilc.blackgravel    = ['171717', 233]
-let s:ilc.blackestgravel = ['141413', 232]
+let s:asm.brightgravel   = ['d9cec3', 252]
+let s:asm.lightgravel    = ['998f84', 245]
+let s:asm.gravel         = ['857f78', 243]
+let s:asm.mediumgravel   = ['666462', 241]
+let s:asm.deepgravel     = ['45413b', 238]
+let s:asm.deepergravel   = ['35322d', 236]
+let s:asm.darkgravel     = ['242321', 235]
+let s:asm.darkblackgravel= ['191919', 234]
+let s:asm.blackgravel    = ['171717', 233]
+let s:asm.blackestgravel = ['141413', 232]
 
 " A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
 " my desk.
-let s:ilc.dalespale = ['fade3e', 223]
+let s:asm.dalespale = ['fade3e', 223]
 
 " A beautiful tan from Tomorrow Night.
-let s:ilc.lightgreen = ['8bc16f', 187]
+let s:asm.lightgreen = ['8bc16f', 187]
 
 " Light yellow
-let s:ilc.sandwisp = ['f4e694', 102]
+let s:asm.sandwisp = ['f4e694', 102]
 
 " Light Blue
-let s:ilc.logan = ['9ba3c5', 37]
+let s:asm.logan = ['9ba3c5', 37]
 
 " Light Orange
-let s:ilc.waxflower = ['a678ac', 222]
+let s:asm.waxflower = ['a678ac', 222]
 
 " Ice
-let s:ilc.ice  = ['ffffd7', 160]
+let s:asm.ice  = ['ffffd7', 160]
 
-let s:ilc.smaltblue = ['4C8385', 66]
+let s:asm.smaltblue = ['4C8385', 66]
 
 " Another chewy accent, but use sparingly!
-let s:ilc.saltwatersandwisp = ['8cffba', 121]
+let s:asm.saltwatersandwisp = ['8cffba', 121]
 
 " The star of the show comes straight from Made of Code.
 "
@@ -58,20 +58,20 @@ let s:ilc.saltwatersandwisp = ['8cffba', 121]
 "
 " * The cursor
 " * A REPL prompt
-let s:ilc.tardis = ['0a9dff', 39]
+let s:asm.tardis = ['0a9dff', 39]
 
 " Dark red
-let s:ilc.carmine = ['b03b3b', 140]
+let s:asm.carmine = ['b03b3b', 140]
 
 " Rose's dress in The Idiot's Lantern.
-let s:ilc.dress = ['f26767', 152]
+let s:asm.dress = ['f26767', 152]
 
 " Another play on the brown from Clouds Midnight.  I love that color.
-let s:ilc.toffee = ['b88853', 137]
+let s:asm.toffee = ['b88853', 137]
 
 " Also based on that Clouds Midnight brown.
-let s:ilc.coffee    = ['c7915b', 173]
-let s:ilc.darkroast = ['88633f', 95]
+let s:asm.coffee    = ['c7915b', 173]
+let s:asm.darkroast = ['88633f', 95]
 
 " }}}
 " Supporting code ------------------------------------------------------- {{{
@@ -108,7 +108,7 @@ function! s:HL(group, fg, ...)
         if a:fg == 'fg'
             let histring .= 'guifg=fg ctermfg=fg '
         else
-            let c = get(s:ilc, a:fg)
+            let c = get(s:asm, a:fg)
             let histring .= 'guifg=#' . c[0] . ' ctermfg=' . c[1] . ' '
         endif
     endif
@@ -117,7 +117,7 @@ function! s:HL(group, fg, ...)
         if a:1 == 'bg'
             let histring .= 'guibg=bg ctermbg=bg '
         else
-            let c = get(s:ilc, a:1)
+            let c = get(s:asm, a:1)
             let histring .= 'guibg=#' . c[0] . ' ctermbg=' . c[1] . ' '
         endif
     endif
@@ -127,7 +127,7 @@ function! s:HL(group, fg, ...)
     endif
 
     if a:0 >= 3 && strlen(a:3)
-        let c = get(s:ilc, a:3)
+        let c = get(s:asm, a:3)
         let histring .= 'guisp=#' . c[0] . ' '
     endif
 
