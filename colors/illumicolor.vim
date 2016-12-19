@@ -191,9 +191,15 @@ call s:HL('SpecialKey', 'deepgravel', 'bg')
 call s:HL('Visual',    '',  'deepgravel')
 call s:HL('VisualNOS', '',  'deepgravel')
 
+call s:HL('MatchParen', 'tardis',  'blackestgravel', 'italic')
 " Highlights only characters in 80th column
 call s:HL('ColorColumn', '', 'darkgravel', 'none')
 call matchadd('ColorColumn', '\%81v', 100)
+
+
+call s:HL('Pmenu', 'brightgravel', 'darkgravel', 'none')
+call s:HL('PmenuSel', 'tardis', 'blackestgravel', 'none')
+call s:HL('PmenuSbar', 'brightgravel', 'tardis', 'none')
 
 " }}}
 " Gutter {{{
