@@ -61,7 +61,7 @@ let s:ilc.saltwatersandwisp = ['8cffba', 121]
 let s:ilc.tardis = ['0a9dff', 39]
 
 " Dark red
-let s:ilc.carmine = ['b03b3b', 96]
+let s:ilc.carmine = ['b03b3b', 140]
 
 " Rose's dress in The Idiot's Lantern.
 let s:ilc.dress = ['f26767', 152]
@@ -203,9 +203,9 @@ call s:HL('FoldColumn', 'mediumgravel', s:gutter)
 " }}}
 " Cursor {{{
 
-call s:HL('Cursor',  'coal', 'carmine', 'bold')
-call s:HL('vCursor', 'coal', 'carmine', 'bold')
-call s:HL('iCursor', 'coal', 'carmine', 'none')
+call s:HL('Cursor',  'coal', 'ice', 'bold')
+call s:HL('vCursor', 'coal', 'ice', 'bold')
+call s:HL('iCursor', 'coal', 'ice', 'none')
 
 " }}}
 " }}}
