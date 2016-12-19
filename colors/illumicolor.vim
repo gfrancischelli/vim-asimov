@@ -310,12 +310,12 @@ call s:HL('jsConditional',      'dalespale', '', 'none')
 call s:HL('jsBooleanTrue',      'saltwatersandwisp', '', 'none')
 
 " ES6
-call s:HL('jsFrom',          'gravel', '', 'none')
-call s:HL('jsImport',        'gravel', '', 'none')
-call s:HL('jsExport', 'ice', '', 'italic')
+call s:HL('jsFrom',          'gravel', '', 'italic')
+call s:HL('jsImport',        'ice', '', 'none')
+call s:HL('jsExport',        'ice', '', 'italic')
 call s:HL('jsExportDefault', 'lightgravel', '', 'none')
-call s:HL('jsModuleKeyword', 'snow', '', 'italic')
-
+call s:HL('jsModuleKeyword', 'snow', '', 'none')
+call s:HL('jsClassKeyword',  'ice', '', 'italic')
 call s:HL('javascriptReserved', 'ice', '', 'italic')
 
 call s:HL('jsGlobalObjects', 'ice', '', 'none')
