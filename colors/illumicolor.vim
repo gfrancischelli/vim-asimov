@@ -9,14 +9,14 @@ let s:asm = {}
 
 " The most basic of all our colors is a slightly tweaked version of the Molokai
 " Normal text.
-let s:asm.plain = ['bfc5c7', 254]
+let s:asm.plain = ['bfc5c7', 250]
 
 " Pure and simple.
-let s:asm.snow = ['edfaf9', 15]
+let s:asm.snow = ['edfaf9', 253]
 let s:asm.coal = ['000000', 16]
 
 " All of the Gravel colors are based on a brown from Clouds Midnight.
-let s:asm.brightgravel   = ['d9cec3', 252]
+let s:asm.brightgravel   = ['d9cec3', 248]
 let s:asm.lightgravel    = ['998f84', 245]
 let s:asm.gravel         = ['857f78', 243]
 let s:asm.mediumgravel   = ['666462', 241]
@@ -24,7 +24,7 @@ let s:asm.deepgravel     = ['45413b', 238]
 let s:asm.deepergravel   = ['35322d', 236]
 let s:asm.darkgravel     = ['242321', 235]
 let s:asm.darkblackgravel= ['191919', 234]
-let s:asm.blackgravel    = ['171717', 233]
+let s:asm.blackgravel    = ['171717', 234]
 let s:asm.blackestgravel = ['141413', 232]
 
 " A color sampled from a highlight in a photo of a glass of Dale's Pale Ale on
@@ -34,14 +34,23 @@ let s:asm.dalespale = ['fade3e', 223]
 " A beautiful tan from Tomorrow Night.
 let s:asm.lightgreen = ['8bc16f', 187]
 
+" Pretty pink
+let s:asm.prettypink = ['555555', 170]
+
 " Light yellow
 let s:asm.sandwisp = ['f4e694', 102]
 
 " Light Blue
-let s:asm.logan = ['9ba3c5', 37]
+let s:asm.logan = ['9ba3c5', 25]
 
 " Light Orange
 let s:asm.waxflower = ['a678ac', 222]
+
+let s:asm.palered = ['ff5f5f', 204]
+
+let s:asm.orange = ['444444', 202]
+
+let s:asm.green = ['444444', 41]
 
 " Ice
 let s:asm.ice  = ['ffffd7', 160]
@@ -188,7 +197,7 @@ call s:HL('MatchParen', 'dalespale', 'darkgravel', 'none')
 call s:HL('NonText',    'deepgravel', 'bg')
 call s:HL('SpecialKey', 'deepgravel', 'bg')
 
-call s:HL('Visual',    '',  'deepgravel')
+call s:HL('Visual',    '',  'darkgravel')
 call s:HL('VisualNOS', '',  'deepgravel')
 
 call s:HL('MatchParen', 'tardis',  'blackestgravel', 'italic')
@@ -257,9 +266,9 @@ call s:HL('htmlTag', 'deepgravel', '', 'none')
 call s:HL('htmlEndTag', 'mediumgravel', '', 'none')
 call s:HL('htmlTagName', 'gravel', '', 'none')
 
-call s:HL('xmlAttrib', 'brightgravel', '', 'italic')
-call s:HL('xmlEqual', 'lightgravel', '', 'italic')
-call s:HL('xmlTag', 'deepgravel', '', 'none')
+call s:HL('xmlAttrib', 'palered', '', 'italic')
+call s:HL('xmlEqual', 'logan', '', 'italic')
+call s:HL('xmlTag', 'mediumgravel', '', 'none')
 call s:HL('xmlEndTag', 'mediumgravel', '', 'none')
 call s:HL('xmlTagName', 'gravel', '', 'none')
 
@@ -280,53 +289,63 @@ call s:HL('cssPositioningProp', 'plain', '', 'none')
 
 
 " }}}
-" Javascript ------------------------------------------------------------ {{{
+" Javascript ------------------------------------------------------ {{{
 
 " Basics
 call s:HL('jsNumber',     'dalespale', '', 'italic')
 call s:HL('jsOperator',   'waxflower', '', '')
-call s:HL('jsNoise',  'mediumgravel', '', 'none')
-call s:HL('jsSuper',  'smaltblue',  '', 'none')
-call s:HL('jsThis',   'waxflower', '', 'none')
+call s:HL('jsNoise',  'logan', '', 'none')
+call s:HL('jsSuper',  'green',  '', 'none')
+call s:HL('jsThis',   'orange', '', 'none')
 
 " Braces
-call s:HL('jsBraces',  'brightgravel', '', 'none')
+call s:HL('jsBraces',  'gravel', '', 'none')
+call s:HL('jsObjectBraces', 'logan', '', 'none')
 call s:HL('jsTemplateBraces', 'lightgravel', '', 'none')
-call s:HL('jsDestructuringBraces', 'lightgravel', '', 'none')
+call s:HL('jsDestructuringBraces', 'logan', '', 'none')
+call s:HL('jsModuleBraces', 'logan', '' , 'none')
+call s:HL('jsParens',   'gravel', '', 'none')
 
 " Function
 call s:HL('jsFunction',       'ice', '', 'none')
 call s:HL('jsFuncName',       'plain', '', 'none')
+call s:HL('jsFuncCall',       'plain', '', 'none')
 call s:HL('jsArrowFunction',  'dalespale', '', 'none')
 call s:HL('jsFuncArgs',       'snow', '', 'italic')
 call s:HL('jsFuncParens',     'gravel', '', 'none')
 call s:HL('jsFuncCall',         'snow', '', 'none')
 call s:HL('jsObjectFuncName',   'plain', '', 'none')
-call s:HL('jsReturn',           'smaltblue', '', 'none')
+call s:HL('jsReturn',           'green', '', 'none')
 call s:HL('jsArrowFuncArgs', 'snow', '', 'none')
 
 " Js Conditionals
 call s:HL('jsConditional',      'dalespale', '', 'none')
 call s:HL('jsBooleanTrue',      'saltwatersandwisp', '', 'none')
+call s:HL('jsTernaryIfOperator', 'green', '', 'none')
 
 " ES6
-call s:HL('jsFrom',          'gravel', '', 'italic')
-call s:HL('jsImport',        'ice', '', 'none')
+call s:HL('jsFrom',          'prettypink', '', 'italic')
+call s:HL('jsImport',        'prettypink', '', 'none')
 call s:HL('jsExport',        'ice', '', 'italic')
+call s:HL('jsExtendsKeyword', 'ice', '', 'none')
 call s:HL('jsExportDefault', 'lightgravel', '', 'none')
 call s:HL('jsModuleKeyword', 'snow', '', 'none')
 call s:HL('jsClassKeyword',  'ice', '', 'italic')
+call s:HL('jsClassMethodType', 'ice', '', 'italic')
+call s:HL('jsClassFuncName', 'orange', '', 'none')
 call s:HL('javascriptReserved', 'ice', '', 'italic')
 
-call s:HL('jsGlobalObjects', 'ice', '', 'none')
+call s:HL('jsGlobalObjects', 'plain', '', 'none')
 
 " Objects
 call s:HL('jsObjectSeparator', 'mediumgravel', '', 'none')
 call s:HL('jsObjectColon',      'lightgravel', '', 'none')
-call s:HL('jsObjectKey',        'lightgravel', '', 'none')
+call s:HL('jsObjectKey',        'brightgravel', '', 'none')
 call s:HL('javaScriptObjectKey', 'gravel', '', 'none')
-call s:HL('jsStorageClass', 'carmine', '', 'none')
+call s:HL('jsStorageClass', 'prettypink', '', 'none')
 call s:HL('jsGlobalNodeObjects', 'ice', '', 'italic' )
+
+call s:HL('jsNull', 'prettypink', '', 'italic' )
 
 
 
