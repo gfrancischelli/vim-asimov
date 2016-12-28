@@ -296,7 +296,7 @@ call s:HL('jsNumber',     'dalespale', '', 'italic')
 call s:HL('jsOperator',   'waxflower', '', '')
 call s:HL('jsNoise',  'logan', '', 'none')
 call s:HL('jsSuper',  'green',  '', 'none')
-call s:HL('jsThis',   'orange', '', 'none')
+call s:HL('jsThis',   'carmine', '', 'none')
 
 " Braces
 call s:HL('jsBraces',  'gravel', '', 'none')
@@ -310,8 +310,9 @@ call s:HL('jsParens',   'gravel', '', 'none')
 call s:HL('jsFunction',       'ice', '', 'none')
 call s:HL('jsFuncName',       'plain', '', 'none')
 call s:HL('jsFuncCall',       'plain', '', 'none')
-call s:HL('jsArrowFunction',  'dalespale', '', 'none')
+call s:HL('jsArrowFunction',  'green', '', 'none')
 call s:HL('jsFuncArgs',       'snow', '', 'italic')
+call s:HL('jsArrowFuncArgs',  'snow', '', 'italic')
 call s:HL('jsFuncParens',     'gravel', '', 'none')
 call s:HL('jsFuncCall',         'snow', '', 'none')
 call s:HL('jsObjectFuncName',   'plain', '', 'none')
@@ -348,6 +349,16 @@ call s:HL('jsGlobalNodeObjects', 'ice', '', 'italic' )
 call s:HL('jsNull', 'prettypink', '', 'italic' )
 
 
+
+" }}}
+" JSON ----------------------------------- {{{
+
+call s:HL('jsonString', 'dalespale', '', 'none' )
+call s:HL('jsonNoise', 'logan', '', 'none')
+call s:HL('jsonKeyword', 'orange', '', 'none')
+call s:HL('jsonKeywordMatch', 'prettypink', '', 'none')
+call s:HL('jsonBraces', 'logan', '', 'none')
+call s:HL('jsonQuote', 'tardis', '', 'none')
 
 " }}}
 " Plugins --------------------------------------------------------------- {{{
